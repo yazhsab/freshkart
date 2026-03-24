@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "104631914567",
+    "project_id": "freshkart-9f81d",
+    "storage_bucket": "freshkart-9f81d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104631914567:android:vendor_placeholder",
+        "android_client_info": {
+          "package_name": "com.freshkart.vendor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClV3--uT-KDik2tnmPZ3nGqMszvfjQPys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

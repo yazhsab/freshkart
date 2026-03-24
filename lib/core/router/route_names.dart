@@ -1,0 +1,29 @@
+class RouteNames {
+  RouteNames._();
+  static const splash = 'splash';
+  static const onboarding = 'onboarding';
+  static const login = 'login';
+  static const otp = 'otp';
+  static const home = 'home';
+  static const search = 'search';
+  static const orders = 'orders';
+  static const orderDetail = 'order-detail';
+  static const orderTracking = 'order-tracking';
+  static const rateOrder = 'rate-order';
+  static const services = 'services';
+  static const serviceCategory = 'service-category';
+  static const bookService = 'book-service';
+  static const bookings = 'bookings';
+  static const bookingConfirmation = 'booking-confirmation';
+  static const bookingDetail = 'booking-detail';
+  static const rateBooking = 'rate-booking';
+  static const profile = 'profile';
+  static const editProfile = 'edit-profile';
+  static const profileAddresses = 'profile-addresses';
+  static const addAddress = 'add-address';
+  static const notifications = 'notifications';
+  static const vendorDetail = 'vendor-detail';
+  static const productDetail = 'product-detail';
+  static const cart = 'cart';
+  static const checkout = 'checkout';
+}

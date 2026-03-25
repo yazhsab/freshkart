@@ -1,16 +1,142 @@
-# freshkart
+# FreshKart
 
-A new Flutter project.
+A full-stack dual-vertical marketplace platform for **grocery delivery** and **blue-collar home services**, built with Flutter and Node.js. Designed for regional markets in Tamil Nadu, India.
 
-## Getting Started
+## Architecture
 
-This project is a starting point for a Flutter application.
+```
+FreshKart/
+├── customerapp/       # Customer-facing mobile app
+├── vendorapp/         # Grocery vendor/shop owner app
+├── driverapp/         # Delivery agent app
+├── workerapp/         # Service professional app
+├── lib/               # Shared code & Flutter web admin panel
+├── backend/           # Node.js/Express REST API
+└── supabase_schema.sql  # Database schema (PostgreSQL)
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Layer | Technology |
+|-------|-----------|
+| Mobile Apps | Flutter 3.10.4, Riverpod, GoRouter |
+| Admin Panel | Flutter Web |
+| Backend API | Node.js, Express 4.18 |
+| Database | Supabase (PostgreSQL) with Row-Level Security |
+| File Storage | Cloudflare R2 |
+| Cache/Queue | Upstash Redis, BullMQ |
+| Payments | Razorpay, PhonePe |
+| Auth/OTP | Supabase Auth, MSG91 |
+| Push Notifications | Firebase Cloud Messaging |
+| Maps | Ola Maps API |
+| Deployment | Railway (backend), Vercel (admin) |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+
+### Grocery Vertical
+- Product catalog with categories and Tamil translations
+- Real-time inventory management by vendors
+- Shopping cart, instant & scheduled orders
+- Live delivery tracking with driver assignment
+- Delivery fee calculation
+
+### Services Vertical
+- Service categories (plumbing, electrical, cleaning, etc.)
+- Worker availability slot management
+- Date/time-based booking system
+
+### Monetization
+- Razorpay payment processing
+- Digital wallet (topup & debit)
+- Loyalty points program
+- Coupon/discount system
+- Referral rewards (configurable amounts)
+- Commission-based payouts (Grocery: 10%, Services: 20%)
+
+### Platform
+- Geolocation-based zone filtering (Tamil Nadu districts)
+- Real-time chat via Supabase Realtime
+- Push notifications (FCM)
+- SMS/OTP authentication
+- Ratings & reviews
+- Multi-language support (English & Tamil)
+
+## Apps Overview
+
+| App | Description | README |
+|-----|-------------|--------|
+| **Customer App** | Browse groceries & services, place orders, track deliveries | [customerapp/README.md](customerapp/README.md) |
+| **Vendor App** | Manage shop inventory, process orders, track earnings | [vendorapp/README.md](vendorapp/README.md) |
+| **Driver App** | Accept deliveries, navigate routes, manage earnings | [driverapp/README.md](driverapp/README.md) |
+| **Worker App** | Manage service bookings, set availability, track jobs | [workerapp/README.md](workerapp/README.md) |
+| **Backend API** | REST API powering all apps | [backend/README.md](backend/README.md) |
+| **Admin Panel** | Platform management via Flutter Web | `lib/features/admin/` |
+
+## Prerequisites
+
+- Flutter SDK >= 3.10.4
+- Node.js >= 18
+- Supabase project
+- Firebase project (for FCM)
+- Razorpay account
+- MSG91 account (for OTP)
+
+## Quick Start
+
+### 1. Database Setup
+
+Apply the schema to your Supabase project:
+
+```bash
+# Import via Supabase dashboard SQL editor or CLI
+psql -h YOUR_SUPABASE_HOST -U postgres -d postgres -f supabase_schema.sql
+```
+
+### 2. Backend
+
+```bash
+cd backend
+cp .env.example .env
+# Fill in all environment variables in .env
+npm install
+npm run dev
+```
+
+### 3. Flutter Apps
+
+Each app can be run independently:
+
+```bash
+cd customerapp   # or vendorapp, driverapp, workerapp
+flutter pub get
+flutter run
+```
+
+For the admin panel (Flutter Web):
+
+```bash
+flutter pub get
+flutter run -d chrome
+```
+
+## Environment Variables
+
+See [`backend/.env.example`](backend/.env.example) for the full list of required environment variables including keys for Supabase, Razorpay, Firebase, MSG91, Ola Maps, Cloudflare R2, and Redis.
+
+## Database
+
+The full PostgreSQL schema is in `supabase_schema.sql` with 35+ tables covering:
+
+- User profiles & addresses
+- Vendors, products, categories
+- Orders & order items
+- Workers, slots, bookings
+- Payments & payouts
+- Wallets, loyalty, coupons, referrals
+- Chat rooms & messages
+- Zones & platform configuration
+- 18+ performance indexes
+
+## License
+
+Proprietary. All rights reserved.

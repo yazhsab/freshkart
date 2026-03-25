@@ -6,10 +6,13 @@ A full-stack dual-vertical marketplace platform for **grocery delivery** and **b
 
 ```
 FreshKart/
-├── customerapp/       # Customer-facing mobile app
-├── vendorapp/         # Grocery vendor/shop owner app
-├── driverapp/         # Delivery agent app
-├── workerapp/         # Service professional app
+├── customerapp/       # Customer mobile app (Flutter)
+├── vendorapp/         # Vendor/shop owner app (Flutter)
+├── driverapp/         # Delivery agent app (Flutter)
+├── workerapp/         # Service professional app (Flutter)
+├── native/
+│   ├── android/       # Native Android apps (Kotlin + Jetpack Compose)
+│   └── ios/           # Native iOS apps (Swift + SwiftUI)
 ├── lib/               # Shared code & Flutter web admin panel
 ├── backend/           # Node.js/Express REST API
 └── supabase_schema.sql  # Database schema (PostgreSQL)
@@ -19,7 +22,9 @@ FreshKart/
 
 | Layer | Technology |
 |-------|-----------|
-| Mobile Apps | Flutter 3.10.4, Riverpod, GoRouter |
+| Mobile Apps (Flutter) | Flutter 3.10.4, Riverpod, GoRouter |
+| Mobile Apps (Native Android) | Kotlin 1.9.22, Jetpack Compose, Hilt, Retrofit |
+| Mobile Apps (Native iOS) | Swift 5.9+, SwiftUI, URLSession |
 | Admin Panel | Flutter Web |
 | Backend API | Node.js, Express 4.18 |
 | Database | Supabase (PostgreSQL) with Row-Level Security |
@@ -71,10 +76,14 @@ FreshKart/
 | **Worker App** | Manage service bookings, set availability, track jobs | [workerapp/README.md](workerapp/README.md) |
 | **Backend API** | REST API powering all apps | [backend/README.md](backend/README.md) |
 | **Admin Panel** | Platform management via Flutter Web | `lib/features/admin/` |
+| **Native Android** | Kotlin + Jetpack Compose versions of all 4 apps | [native/android/README.md](native/android/README.md) |
+| **Native iOS** | Swift + SwiftUI versions of all 4 apps | [native/ios/README.md](native/ios/README.md) |
 
 ## Prerequisites
 
-- Flutter SDK >= 3.10.4
+- Flutter SDK >= 3.10.4 (for Flutter apps)
+- Android Studio Hedgehog+ with Kotlin plugin (for native Android)
+- Xcode 15+ with iOS 17 SDK (for native iOS)
 - Node.js >= 18
 - Supabase project
 - Firebase project (for FCM)
@@ -118,6 +127,10 @@ For the admin panel (Flutter Web):
 flutter pub get
 flutter run -d chrome
 ```
+
+### 4. Native Apps (Optional)
+
+Native Android and iOS apps are in the `native/` directory. See [native/README.md](native/README.md) for build instructions.
 
 ## Environment Variables
 
